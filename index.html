@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LVI-Valkama Oy – LVI-asennukset ja -huollot Helsingissä | Pikku Huopalahti</title>
+<meta name="description" content="LVI-Valkama Oy tarjoaa ilmanvaihtotyöt, lämmitys-, putki- ja LVI-huoltopalvelut Pikku Huopalahdessa ja koko pääkaupunkiseudulla. Pyydä tarjous jo tänään.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d9488'/%3E%3Cpath d='M20 44V28l12-9 12 9v16h-8v-9h-8v9z' fill='white'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --accent:#0d9488;
+    --accent-bright:#14b8a6;
+    --accent-soft:rgba(13,148,136,.14);
+    --bg:#0b1220;
+    --bg-2:#0f172a;
+    --bg-3:#131c31;
+    --card:#111a2e;
+    --line:rgba(148,163,184,.14);
+    --text:#e2e8f0;
+    --muted:#94a3b8;
+    --white:#ffffff;
+    --radius:16px;
+    --shadow:0 18px 50px -18px rgba(2,6,23,.65);
+    --font:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font);
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--accent);color:#fff}
+  a{color:var(--accent-bright);text-decoration:none}
+  a:hover{text-decoration:underline}
+  :focus-visible{outline:3px solid var(--accent-bright);outline-offset:3px;border-radius:6px}
+  img,svg{display:block;max-width:100%}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+  /* ---------- DEMO banner ---------- */
+  .demo-banner{
+    background:linear-gradient(90deg,#0d9488,#0f766e 55%,#0d9488);
+    color:#fff;
+    text-align:center;
+    font-size:.82rem;
+    font-weight:700;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    padding:9px 16px;
+    position:relative;
+    z-index:60;
+  }
+  .demo-banner span{opacity:.85;font-weight:600;letter-spacing:.04em;text-transform:none}
+
+  /* ---------- Nav ---------- */
+  header.site-nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(11,18,32,.82);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
+  .brand{display:flex;align-items:center;gap:11px;color:var(--white);font-weight:800;font-size:1.06rem;letter-spacing:-.01em}
+  .brand:hover{text-decoration:none}
+  .brand .mark{
+    width:38px;height:38px;border-radius:11px;flex:none;
+    background:linear-gradient(135deg,var(--accent-bright),#0f766e);
+    display:grid;place-items:center;
+    box-shadow:0 6px 18px -6px rgba(13,148,136,.55);
+  }
+  .brand small{display:block;font-size:.68rem;font-weight:600;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+  nav.main-links ul{display:flex;align-items:center;gap:6px;list-style:none}
+  nav.main-links a{
+    color:var(--muted);font-weight:600;font-size:.92rem;
+    padding:9px 14px;border-radius:10px;transition:color .2s,background .2s;
+  }
+  nav.main-links a:hover{color:#fff;background:rgba(148,163,184,.1);text-decoration:none}
+  .nav-cta{
+    background:var(--accent);color:#fff!important;font-weight:700;
+    padding:10px 20px!important;border-radius:999px!important;
+    box-shadow:0 8px 22px -8px rgba(13,148,136,.7);
+    transition:transform .2s,background .2s!important;
+  }
+  .nav-cta:hover{background:var(--accent-bright)!important;transform:translateY(-1px)}
+  .nav-toggle{
+    display:none;background:none;border:1px solid var(--line);border-radius:10px;
+    width:44px;height:44px;cursor:pointer;color:var(--text);
+  }
+  .nav-toggle svg{margin:auto}
+
+  /* ---------- Hero (split / offset composition) ---------- */
+  .hero{
+    position:relative;
+    padding:96px 0 130px;
+    background:
+      radial-gradient(900px 500px at 85% -10%,rgba(13,148,136,.16),transparent 60%),
+      radial-gradient(700px 420px at -10% 110%,rgba(13,148,136,.08),transparent 55%),
+      linear-gradient(180deg,var(--bg-2),var(--bg));
+    overflow:hidden;
+  }
+  .hero-grid-lines{
+    position:absolute;inset:0;pointer-events:none;opacity:.5;
+    background-image:linear-gradient(rgba(148,163,184,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.05) 1px,transparent 1px);
+    background-size:56px 56px;
+    mask-image:radial-gradient(70% 60% at 50% 30%,#000,transparent);
+    -webkit-mask-image:radial-gradient(70% 60% at 50% 30%,#000,transparent);
+  }
+  .hero-inner{
+    position:relative;display:grid;
+    grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:9px;
+    background:var(--accent-soft);border:1px solid rgba(20,184,166,.3);
+    color:var(--accent-bright);font-weight:700;font-size:.78rem;
+    letter-spacing:.14em;text-transform:uppercase;
+    padding:7px 15px;border-radius:999px;margin-bottom:22px;
+  }
+  .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--accent-bright);box-shadow:0 0 0 4px rgba(20,184,166,.18)}
+  .hero h1{
+    font-size:clamp(2.3rem,4.6vw,3.6rem);
+    line-height:1.08;letter-spacing:-.025em;color:var(--white);
+    font-weight:800;margin-bottom:20px;
+  }
+  .hero h1 .hl{
+    background:linear-gradient(92deg,var(--accent-bright),#5eead4);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p.lead{font-size:1.13rem;color:var(--muted);max-width:34rem;margin-bottom:34px}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-weight:700;font-size:1rem;border-radius:12px;
+    padding:15px 28px;cursor:pointer;border:none;
+    transition:transform .2s,box-shadow .2s,background .2s;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg,var(--accent-bright),var(--accent));
+    color:#fff;box-shadow:0 14px 32px -10px rgba(13,148,136,.65);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 20px 40px -12px rgba(13,148,136,.75);text-decoration:none}
+  .btn-ghost{
+    background:transparent;color:var(--text);
+    border:1px solid rgba(148,163,184,.35);
+  }
+  .btn-ghost:hover{border-color:var(--accent-bright);color:var(--accent-bright);text-decoration:none;transform:translateY(-2px)}
+  .hero-hours{
+    margin-top:30px;display:inline-flex;align-items:center;gap:10px;
+    color:var(--muted);font-size:.92rem;font-weight:600;
+  }
+  .hero-hours svg{color:var(--accent-bright);flex:none}
+
+  /* Hero visual: offset stacked cards + decorative SVG */
+  .hero-visual{position:relative}
+  .hero-panel{
+    position:relative;border-radius:24px;
+    background:linear-gradient(160deg,var(--bg-3),#0d1526);
+    border:1px solid var(--line);
+    box-shadow:var(--shadow);
+    padding:34px 30px 30px;
+  }
+  .hero-panel::before{
+    content:"";position:absolute;inset:-1px;border-radius:24px;padding:1px;
+    background:linear-gradient(140deg,rgba(20,184,166,.5),transparent 40%,transparent 70%,rgba(20,184,166,.25));
+    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
+  }
+  .pipe-art{width:100%;height:auto;margin-bottom:8px}
+  .hero-panel h3{color:#fff;font-size:1.05rem;margin-bottom:4px}
+  .hero-panel p{color:var(--muted);font-size:.9rem}
+  .float-card{
+    position:absolute;background:rgba(17,26,46,.92);
+    backdrop-filter:blur(8px);
+    border:1px solid rgba(20,184,166,.35);
+    border-radius:14px;padding:14px 18px;
+    box-shadow:0 16px 40px -14px rgba(2,6,23,.8);
+    display:flex;align-items:center;gap:12px;
+  }
+  .float-card .ic{
+    width:40px;height:40px;border-radius:11px;flex:none;
+    background:var(--accent-soft);display:grid;place-items:center;color:var(--accent-bright);
+  }
+  .float-card strong{display:block;color:#fff;font-size:.95rem;line-height:1.25}
+  .float-card span{color:var(--muted);font-size:.78rem}
+  .float-a{top:-26px;right:-14px}
+  .float-b{bottom:-24px;left:-18px}
+
+  /* ---------- Stats strip (overlapping band) ---------- */
+  .stats-band{position:relative;margin-top:-64px;z-index:5}
+  .stats-card{
+    background:linear-gradient(135deg,#0f766e,var(--accent) 55%,#14b8a6);
+    border-radius:22px;box-shadow:0 26px 60px -20px rgba(13,148,136,.5);
+    display:grid;grid-template-columns:repeat(4,1fr);
+    overflow:hidden;position:relative;
+  }
+  .stats-card::after{
+    content:"";position:absolute;right:-70px;top:-70px;width:220px;height:220px;border-radius:50%;
+    border:34px solid rgba(255,255,255,.08);
+  }
+  .stat{
+    padding:32px 22px;text-align:center;color:#fff;position:relative;
+  }
+  .stat + .stat::before{
+    content:"";position:absolute;left:0;top:22%;height:56%;width:1px;background:rgba(255,255,255,.25);
+  }
+  .stat .num{font-size:2.15rem;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+  .stat .num small{font-size:1.3rem;font-weight:700}
+  .stat .lbl{font-size:.82rem;font-weight:600;opacity:.9;letter-spacing:.05em;text-transform:uppercase;margin-top:4px}
+
+  /* ---------- Section scaffolding ---------- */
+  section{padding:96px 0}
+  .section-head{max-width:640px;margin-bottom:56px}
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center}
+  .kicker{
+    color:var(--accent-bright);font-weight:800;font-size:.78rem;
+    letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px;display:block;
+  }
+  .section-head h2{
+    font-size:clamp(1.7rem,3vw,2.4rem);color:#fff;letter-spacing:-.02em;
+    line-height:1.15;font-weight:800;margin-bottom:14px;
+  }
+  .section-head p{color:var(--muted);font-size:1.04rem}
+
+  /* ---------- Services ---------- */
+  .services{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative}
+  .services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .svc-card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:30px 28px;position:relative;overflow:hidden;
+    transition:transform .25s,border-color .25s,box-shadow .25s;
+  }
+  .svc-card:hover{
+    transform:translateY(-6px);border-color:rgba(20,184,166,.45);
+    box-shadow:0 24px 48px -20px rgba(2,6,23,.8);
+  }
+  .svc-card::after{
+    content:"";position:absolute;right:0;top:0;width:120px;height:120px;
+    background:radial-gradient(closest-side,rgba(20,184,166,.12),transparent);
+    opacity:0;transition:opacity .25s;
+  }
+  .svc-card:hover::after{opacity:1}
+  .svc-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:18px}
+  .svc-icon{
+    width:54px;height:54px;border-radius:14px;
+    background:var(--accent-soft);border:1px solid rgba(20,184,166,.3);
+    display:grid;place-items:center;color:var(--accent-bright);
+    transition:background .25s,color .25s;
+  }
+  .svc-card:hover .svc-icon{background:var(--accent);color:#fff}
+  .svc-num{
+    font-size:2rem;font-weight:800;color:transparent;
+    -webkit-text-stroke:1px rgba(148,163,184,.3);
+    letter-spacing:-.02em;
+  }
+  .svc-card h3{color:#fff;font-size:1.18rem;margin-bottom:8px;letter-spacing:-.01em}
+  .svc-card p{color:var(--muted);font-size:.94rem}
+
+  /* ---------- Trust / about split ---------- */
+  .trust-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+  .trust-list{list-style:none;display:grid;gap:16px;margin-top:28px}
+  .trust-list li{display:flex;gap:14px;align-items:flex-start}
+  .trust-list .tick{
+    width:28px;height:28px;flex:none;border-radius:50%;
+    background:var(--accent-soft);border:1px solid rgba(20,184,166,.4);
+    display:grid;place-items:center;color:var(--accent-bright);margin-top:2px;
+  }
+  .trust-list strong{color:#fff;font-weight:700}
+  .trust-list p{color:var(--muted);font-size:.93rem}
+  .hours-card{
+    background:linear-gradient(165deg,var(--bg-3),#0d1526);
+    border:1px solid var(--line);border-radius:22px;
+    padding:36px 32px;box-shadow:var(--shadow);position:relative;overflow:hidden;
+  }
+  .hours-card::before{
+    content:"";position:absolute;left:0;top:0;bottom:0;width:5px;
+    background:linear-gradient(180deg,var(--accent-bright),#0f766e);
+  }
+  .hours-card h3{color:#fff;font-size:1.25rem;margin-bottom:6px;display:flex;align-items:center;gap:12px}
+  .hours-card h3 svg{color:var(--accent-bright)}
+  .hours-card .sub{color:var(--muted);font-size:.9rem;margin-bottom:22px}
+  .hours-row{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:13px 4px;border-bottom:1px dashed rgba(148,163,184,.2);font-size:.95rem;
+  }
+  .hours-row:last-of-type{border-bottom:none}
+  .hours-row .day{color:var(--muted);font-weight:600}
+  .hours-row .time{color:#fff;font-weight:700}
+  .hours-row .time.open{
+    color:var(--accent-bright);background:var(--accent-soft);
+    padding:3px 12px;border-radius:999px;font-size:.85rem;
+  }
+  .badge-pill{
+    margin-top:24px;display:flex;align-items:center;gap:12px;
+    background:var(--accent-soft);border:1px solid rgba(20,184,166,.35);
+    border-radius:14px;padding:14px 18px;
+  }
+  .badge-pill svg{color:var(--accent-bright);flex:none}
+  .badge-pill strong{color:#fff;font-size:.95rem;display:block}
+  .badge-pill span{color:var(--muted);font-size:.8rem}
+  .local-line{
+    margin-top:26px;display:flex;gap:10px;align-items:flex-start;
+    color:var(--text);font-weight:600;font-size:.98rem;
+  }
+  .local-line svg{color:var(--accent-bright);flex:none;margin-top:3px}
+
+  /* ---------- Testimonials ---------- */
+  .testimonials{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .example-note{
+    display:inline-flex;align-items:center;gap:8px;
+    border:1px dashed rgba(20,184,166,.55);color:var(--accent-bright);
+    background:rgba(13,148,136,.08);
+    font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    padding:7px 16px;border-radius:999px;margin-top:16px;
+  }
+  .tst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+  .tst-card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px 26px;display:flex;flex-direction:column;gap:16px;
+    transition:transform .25s,border-color .25s;
+  }
+  .tst-card:hover{transform:translateY(-5px);border-color:rgba(20,184,166,.4)}
+  .stars{color:var(--accent-bright);display:flex;gap:3px}
+  .tst-card blockquote{color:var(--text);font-size:.96rem;font-style:italic}
+  .tst-who{display:flex;align-items:center;gap:12px;margin-top:auto}
+  .avatar{
+    width:44px;height:44px;border-radius:50%;flex:none;
+    background:linear-gradient(135deg,var(--accent),#0f766e);
+    color:#fff;font-weight:800;display:grid;place-items:center;font-size:.95rem;
+  }
+  .tst-who strong{color:#fff;font-size:.92rem;display:block}
+  .tst-who span{color:var(--muted);font-size:.8rem}
+
+  /* ---------- Contact ---------- */
+  .contact-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:52px;align-items:start}
+  .contact-info h2{font-size:clamp(1.7rem,3vw,2.3rem);color:#fff;letter-spacing:-.02em;margin-bottom:14px;font-weight:800}
+  .contact-info>p{color:var(--muted);margin-bottom:30px;font-size:1.02rem}
+  .info-rows{display:grid;gap:14px}
+  .info-row{
+    display:flex;gap:15px;align-items:center;
+    background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;
+  }
+  .info-row .ic{
+    width:44px;height:44px;flex:none;border-radius:12px;
+    background:var(--accent-soft);display:grid;place-items:center;color:var(--accent-bright);
+  }
+  .info-row small{display:block;color:var(--muted);font-size:.76rem;text-transform:uppercase;letter-spacing:.1em;font-weight:700}
+  .info-row strong{color:#fff;font-size:1rem}
+  form.quote-form{
+    background:linear-gradient(165deg,var(--bg-3),#0d1526);
+    border:1px solid var(--line);border-radius:22px;
+    padding:38px 34px;box-shadow:var(--shadow);
+  }
+  form.quote-form h3{color:#fff;font-size:1.3rem;margin-bottom:6px;font-weight:800}
+  form.quote-form .form-sub{color:var(--muted);font-size:.9rem;margin-bottom:26px}
+  .field{margin-bottom:18px}
+  .field label{display:block;font-weight:700;font-size:.86rem;color:var(--text);margin-bottom:7px}
+  .field label .req{color:var(--accent-bright)}
+  .field input,.field textarea{
+    width:100%;background:rgba(11,18,32,.7);
+    border:1px solid rgba(148,163,184,.25);border-radius:11px;
+    padding:13px 15px;color:#fff;font-size:.96rem;font-family:inherit;
+    transition:border-color .2s,box-shadow .2s;
+  }
+  .field input::placeholder,.field textarea::placeholder{color:#64748b}
+  .field input:focus,.field textarea:focus{
+    outline:none;border-color:var(--accent-bright);
+    box-shadow:0 0 0 4px rgba(20,184,166,.18);
+  }
+  .field textarea{min-height:120px;resize:vertical}
+  .form-2col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .form-note{color:var(--muted);font-size:.8rem;margin-top:14px}
+  .form-success{
+    display:none;margin-top:18px;
+    background:var(--accent-soft);border:1px solid rgba(20,184,166,.5);
+    color:#5eead4;border-radius:12px;padding:15px 18px;font-weight:700;font-size:.95rem;
+    align-items:center;gap:10px;
+  }
+  .form-success.show{display:flex}
+
+  /* ---------- Footer ---------- */
+  footer{
+    border-top:1px solid var(--line);
+    background:linear-gradient(180deg,var(--bg),#080d18);
+    padding:52px 0 34px;
+  }
+  .footer-inner{display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:flex-start}
+  .footer-inner .brand small{display:block}
+  .footer-meta{color:var(--muted);font-size:.88rem;max-width:420px}
+  .footer-meta .demo-tag{
+    display:inline-block;margin-bottom:10px;
+    background:rgba(13,148,136,.15);border:1px solid rgba(20,184,166,.4);
+    color:var(--accent-bright);font-weight:700;font-size:.75rem;
+    letter-spacing:.08em;text-transform:uppercase;
+    padding:5px 13px;border-radius:999px;
+  }
+  .footer-bottom{
+    margin-top:38px;padding-top:22px;border-top:1px solid var(--line);
+    color:#64748b;font-size:.82rem;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;
+  }
+
+  /* ---------- Reveal animations ---------- */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.visible{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+    *{transition:none!important}
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:980px){
+    .hero-inner{grid-template-columns:1fr;gap:70px}
+    .hero-visual{max-width:520px}
+    .stats-card{grid-template-columns:repeat(2,1fr)}
+    .stat:nth-child(3)::before{display:none}
+    .trust-inner,.contact-grid{grid-template-columns:1fr;gap:44px}
+    .tst-grid{grid-template-columns:1fr;max-width:560px;margin-left:auto;margin-right:auto}
+  }
+  @media (max-width:760px){
+    .nav-toggle{display:grid}
+    nav.main-links{
+      position:absolute;top:100%;left:0;right:0;
+      background:rgba(11,18,32,.97);border-bottom:1px solid var(--line);
+      display:none;padding:10px 20px 18px;
+    }
+    nav.main-links.open{display:block}
+    nav.main-links ul{flex-direction:column;align-items:stretch;gap:4px}
+    nav.main-links a{display:block;padding:12px 14px}
+    .nav-cta{text-align:center;margin-top:8px}
+    .services-grid{grid-template-columns:1fr}
+    .form-2col{grid-template-columns:1fr}
+    .float-a{right:0}
+    .float-b{left:0}
+    section{padding:72px 0}
+    .hero{padding:64px 0 120px}
+  }
+</style>
+</head>
+<body>
+
+<!-- DEMO banner -->
+<div class="demo-banner" role="note">
+  DEMO-SIVUSTO – esimerkki, ei virallinen sivusto <span>· LVI-Valkama Oy</span>
+</div>
+
+<!-- Sticky navigation -->
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#alku" aria-label="LVI-Valkama Oy – etusivu">
+      <span class="mark" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg>
+      </span>
+      <span>LVI-Valkama Oy<small>Pikku Huopalahti · Helsinki</small></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Avaa valikko" aria-expanded="false" aria-controls="mainNav">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    </button>
+    <nav class="main-links" id="mainNav" aria-label="Päävalikko">
+      <ul>
+        <li><a href="#palvelut">Palvelut</a></li>
+        <li><a href="#luottamus">Miksi me</a></li>
+        <li><a href="#palautteet">Palautteet</a></li>
+        <li><a href="#yhteys">Yhteystiedot</a></li>
+        <li><a href="#yhteys" class="nav-cta">Pyydä tarjous</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="alku">
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Esittely">
+    <div class="hero-grid-lines" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <div class="reveal">
+        <span class="eyebrow"><span class="dot"></span>LVI-ammattilaiset Helsingissä</span>
+        <h1>Kun talotekniikka toimii, <span class="hl">arki sujuu.</span></h1>
+        <p class="lead">LVI-Valkama Oy hoitaa ilmanvaihdon, lämmityksen ja putkityöt alusta loppuun – siististi, sovitusti ja luotettavasti. Palvelemme Pikku Huopalahtea ja koko pääkaupunkiseutua arkisin.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#yhteys">Pyydä tarjous
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#palvelut">Tutustu palveluihin</a>
+        </div>
+        <p class="hero-hours">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          Palvelemme arkisin ma–pe klo 7:00–16:00
+        </p>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="hero-panel">
+          <svg class="pipe-art" viewBox="0 0 420 220" role="img" aria-label="Koristeellinen piirros LVI-putkistosta ja lämpömittarista">
+            <defs>
+              <linearGradient id="pg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#14b8a6"/><stop offset="1" stop-color="#0f766e"/>
+              </linearGradient>
+              <linearGradient id="pg2" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#14b8a6" stop-opacity=".9"/><stop offset="1" stop-color="#14b8a6" stop-opacity=".15"/>
+              </linearGradient>
+            </defs>
+            <!-- pipes -->
+            <path d="M30 190 V70 Q30 40 60 40 H200" fill="none" stroke="rgba(148,163,184,.35)" stroke-width="14" stroke-linecap="round"/>
+            <path d="M30 190 V70 Q30 40 60 40 H200" fill="none" stroke="url(#pg2)" stroke-width="6" stroke-linecap="round"/>
+            <path d="M70 190 V110 Q70 90 90 90 H260" fill="none" stroke="rgba(148,163,184,.22)" stroke-width="14" stroke-linecap="round"/>
+            <path d="M70 190 V110 Q70 90 90 90 H260" fill="none" stroke="url(#pg2)" stroke-width="6" stroke-linecap="round" opacity=".7"/>
+            <!-- joints -->
+            <circle cx="30" cy="120" r="11" fill="#0f172a" stroke="#14b8a6" stroke-width="3"/>
+            <circle cx="70" cy="150" r="11" fill="#0f172a" stroke="#14b8a6" stroke-width="3" opacity=".8"/>
+            <!-- gauge -->
+            <circle cx="330" cy="95" r="62" fill="#0f172a" stroke="rgba(148,163,184,.35)" stroke-width="6"/>
+            <circle cx="330" cy="95" r="62" fill="none" stroke="url(#pg)" stroke-width="6" stroke-linecap="round" stroke-dasharray="290 390" transform="rotate(135 330 95)"/>
+            <g stroke="#64748b" stroke-width="2">
+              <line x1="330" y1="43" x2="330" y2="53"/><line x1="288" y1="53" x2="295" y2="60"/><line x1="372" y1="53" x2="365" y2="60"/>
+              <line x1="278" y1="95" x2="288" y2="95"/><line x1="382" y1="95" x2="372" y2="95"/>
+            </g>
+            <line x1="330" y1="95" x2="360" y2="66" stroke="#14b8a6" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="330" cy="95" r="8" fill="#14b8a6"/>
+            <text x="330" y="140" text-anchor="middle" fill="#94a3b8" font-size="12" font-family="inherit">62 °C</text>
+            <!-- droplet -->
+            <path d="M392 178c0 0 14 16 14 25a14 14 0 1 1-28 0c0-9 14-25 14-25z" fill="url(#pg)" opacity=".9"/>
+          </svg>
+          <h3>Suunniteltu ja asennettu kestämään</h3>
+          <p>Mittaustulokset dokumentoidaan jokaisen työn päätteeksi.</p>
+        </div>
+        <div class="float-card float-a">
+          <span class="ic" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          </span>
+          <span><strong>Vakuutettu työ</strong><span>Vastuuvakuutettu yritys</span></span>
+        </div>
+        <div class="float-card float-b">
+          <span class="ic" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          </span>
+          <span><strong>Ma–pe 7:00–16:00</strong><span>Ammattitiimi paikalla</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="wrap stats-band reveal" aria-label="Yrityksen lukuja">
+    <div class="stats-card">
+      <div class="stat"><div class="num" data-count="15">0<small>+</small></div><div class="lbl">Vuotta kokemusta</div></div>
+      <div class="stat"><div class="num" data-count="1200">0<small>+</small></div><div class="lbl">Toteutettua työtä</div></div>
+      <div class="stat"><div class="num" data-count="98">0<small>%</small></div><div class="lbl">Tyytyväisiä asiakkaita</div></div>
+      <div class="stat"><div class="num" data-count="24">0<small>h</small></div><div class="lbl">Vastaus tarjouspyyntöön</div></div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services" id="palvelut" aria-label="Palvelut">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Palvelumme</span>
+        <h2>Kattavat LVI-palvelut yhden katon alta</h2>
+        <p>Uudis- ja saneerauskohteista huoltoon – hoidamme talotekniikan kokonaisvaltaisesti ja dokumentoidusti.</p>
+      </div>
+      <div class="services-grid">
+        <article class="svc-card reveal">
+          <div class="svc-top">
+            <span class="svc-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/><path d="M17.7 7.7A2.5 2.5 0 1 1 19.5 12H2"/></svg>
+            </span>
+            <span class="svc-num" aria-hidden="true">01</span>
+          </div>
+          <h3>Ilmanvaihtotyöt</h3>
+          <p>Ilmanvaihtojärjestelmien suunnittelu, asennus, säätö ja mittaus. Puhdas ja terveellinen sisäilma koteihin ja liiketiloihin.</p>
+        </article>
+        <article class="svc-card reveal">
+          <div class="svc-top">
+            <span class="svc-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="5"/><path d="M12 10.5a1.5 1.5 0 0 1 1.5 1.5c0 1-1.5 1.2-1.5 2.5"/></svg>
+            </span>
+            <span class="svc-num" aria-hidden="true">02</span>
+          </div>
+          <h3>Lämmitys</h3>
+          <p>Lämmitysjärjestelmien asennukset, säädöt ja modernisoinnit. Energiatehokkaat ratkaisut vesikiertoiseen lämmitykseen.</p>
+        </article>
+        <article class="svc-card reveal">
+          <div class="svc-top">
+            <span class="svc-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6v6H4z" transform="rotate(45 7 7)"/><path d="M9.5 9.5 14 14"/><path d="M14 14l5-1 4 4-4 4-4-4z"/></svg>
+            </span>
+            <span class="svc-num" aria-hidden="true">03</span>
+          </div>
+          <h3>Putkityöt</h3>
+          <p>Vesi- ja viemäriputkistojen asennukset, korjaukset ja uusinnat. Vesivahinkoriskien kartoitus ja ennaltaehkäisevä korjaus.</p>
+        </article>
+        <article class="svc-card reveal">
+          <div class="svc-top">
+            <span class="svc-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4.5 4.5 0 0 0-6 6L3 18l3 3 5.7-5.7a4.5 4.5 0 0 0 6-6L14 13l-3-3z"/></svg>
+            </span>
+            <span class="svc-num" aria-hidden="true">04</span>
+          </div>
+          <h3>Kattavat LVI-huollot</h3>
+          <p>Sopimuspohjaiset huollot taloyhtiöille ja yrityksille. Säännöllinen kunnossapito pidentää järjestelmien elinkaarta.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section id="luottamus" aria-label="Luottamus ja aukioloajat">
+    <div class="wrap trust-inner">
+      <div class="reveal">
+        <span class="kicker">Miksi LVI-Valkama</span>
+        <h2 class="section-head" style="margin-bottom:0;font-size:clamp(1.7rem,3vw,2.4rem);color:#fff;letter-spacing:-.02em;line-height:1.15;font-weight:800">Ammattitaito, joka näkyy lopputuloksessa</h2>
+        <ul class="trust-list">
+          <li>
+            <span class="tick" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <div><strong>Vakuutettu ja luvallinen ammattilainen</strong><p>Kaikki työmme tehdään voimassa olevien määräysten mukaisesti ja täydellä vastuuvakuutuksella.</p></div>
+          </li>
+          <li>
+            <span class="tick" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <div><strong>Kiinteä hinta etukäteen</strong><p>Saat kirjallisen tarjouksen ennen töiden aloitusta – ei piilokustannuksia.</p></div>
+          </li>
+          <li>
+            <span class="tick" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <div><strong>Siisti ja aikataulussa pysyvä työ</strong><p>Jätämme työmaan aina siistiin kuntoon ja pidämme sovitusta aikataulusta kiinni.</p></div>
+          </li>
+        </ul>
+        <p class="local-line">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          Palvelemme Pikku Huopalahti ja koko pääkaupunkiseudun alueella.
+        </p>
+      </div>
+
+      <div class="hours-card reveal">
+        <h3>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          Aukioloajat
+        </h3>
+        <p class="sub">Ammattitiimimme palvelee arkisin – soitathan tai jätä tarjouspyyntö.</p>
+        <div class="hours-row"><span class="day">Maanantai – perjantai</span><span class="time open">7:00 – 16:00</span></div>
+        <div class="hours-row"><span class="day">Lauantai</span><span class="time">Suljettu</span></div>
+        <div class="hours-row"><span class="day">Sunnuntai</span><span class="time">Suljettu</span></div>
+        <div class="badge-pill">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          <span><strong>Vakuutettu ja luvallinen ammattilainen</strong><span>Rekisteröity LVI-urakoitsija</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="palautteet" aria-label="Asiakaspalautteet">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <span class="kicker">Asiakkaiden kokemuksia</span>
+        <h2>Mitä asiakkaamme sanovat</h2>
+        <p>Luottamus rakentuu tehdyistä töistä. Näin asiakkaamme kuvaavat yhteistyötä kanssamme.</p>
+        <span class="example-note" role="note">Esimerkkipalautteita – demonäyttöä varten</span>
+      </div>
+      <div class="tst-grid">
+        <article class="tst-card reveal">
+          <div class="stars" aria-label="Arvosana 5/5">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.2 21 12 17.3 5.8 21l1.4-6.8L2 9.4l7-.8z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.2 21 12 17.3 5.8 21l1.4-6.8L2 9.4l7-.8z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.2 21 12 17.3 5.8 21l1.4-6.8L2 9.4l7-.8z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.2 21 12 17.3 5.8 21l1.4-6.8L2 9.4l7-.8z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.2 21 12 17.3 5.8 21l1.4-6.8L2 9.4l7-.8z"/></svg>
+          </div>
+          <blockquote>”Ilmanvaihtojärjestelmän säätö ja mittaus tehtiin sovitusti yhdessä päivässä. Sisäilman laatu parani selvästi ja raportti oli selkeä.”</blockquote>
+          <div class="tst-who">
+            <span class="avatar" aria-hidden="true">MH</span>
+            <span><strong>Mikko H.</strong><span>Taloyhtiön hallituksen puheenjohtaja, Helsinki</span></span>
+          </div>
+        </article>
+        <article class="tst-card reveal">
+          <div class="stars" aria-label="Arvosana 5/5">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.2 21 12 17.3 5.8 21l1.4-6.8L2 9.4l7-.8z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.2 21 12 17.3 5.8 21l1.4-6.8L2 9.4l7-.8z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.2 21 12 17.3 5.8 21l1.4-6.8L2 9.4l7-.8z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.2 21 12 17.3 5.8 21l1.4-6.8L2 9.4l7-.8z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.2 21 12 17.3 5.8 21l1.4-6.8L2 9.4l7-.8z"/></svg>
+          </div>
+          <blockquote>”Kylpyhuoneen putkiremontti sujui aikataulussa ja työmaa pidettiin siistinä. Yhteydenpito oli helppoa alusta loppuun.”</blockquote>
+          <div class="tst-who">
+            <span class="avatar" aria-hidden="true">SL</span>
+            <span><strong>Sanna L.</strong><span>Omakotitalon omistaja, Espoo</span></span>
+          </div>
+        </article>
+        <article class="tst-card reveal">
+          <div class="stars" aria-label="Arvosana 5/5">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.2 21 12 17.3 5.8 21l1.4-6.8L2 9.4l7-.8z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.2 21 12 17.3 5.8 21l1.4-6.8L2 9.4l7-.8z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.2 21 12 17.3 5.8 21l1.4-6.8L2 9.4l7-.8z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.2 21 12 17.3 5.8 21l1.4-6.8L2 9.4l7-.8z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.2 21 12 17.3 5.8 21l1.4-6.8L2 9.4l7-.8z"/></svg>
+          </div>
+          <blockquote>”Huoltosopimus toimistomme LVI-järjestelmistä on ollut huoleton ratkaisu. Vikatilanteisiin reagoidaan nopeasti.”</blockquote>
+          <div class="tst-who">
+            <span class="avatar" aria-hidden="true">JK</span>
+            <span><strong>Jari K.</strong><span>Kiinteistöpäällikkö, Vantaa</span></span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="yhteys" aria-label="Yhteystiedot ja tarjouspyyntö">
+    <div class="wrap contact-grid">
+      <div class="contact-info reveal">
+        <span class="kicker">Ota yhteyttä</span>
+        <h2>Pyydä maksuton tarjous</h2>
+        <p>Kerro tarpeestasi – vastaamme tarjouspyyntöihin yhden arkipäivän kuluessa.</p>
+        <div class="info-rows">
+          <div class="info-row">
+            <span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.6 2z"/></svg></span>
+            <span><small>Puhelin</small><strong>040 000 0000</strong></span>
+          </div>
+          <div class="info-row">
+            <span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+            <span><small>Sähköposti</small><strong>info@esimerkki.fi</strong></span>
+          </div>
+          <div class="info-row">
+            <span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+            <span><small>Osoite</small><strong>Tilkankatu 2A LB1, 00300 Helsinki</strong></span>
+          </div>
+          <div class="info-row">
+            <span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+            <span><small>Aukioloajat</small><strong>Ma–pe 7:00–16:00</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <form class="quote-form reveal" id="quoteForm" novalidate>
+        <h3>Jätä tarjouspyyntö</h3>
+        <p class="form-sub">Täytä alla oleva lomake, niin otamme sinuun yhteyttä.</p>
+        <div class="form-2col">
+          <div class="field">
+            <label for="f-nimi">Nimi <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="f-nimi" name="nimi" autocomplete="name" placeholder="Etunimi Sukunimi" required>
+          </div>
+          <div class="field">
+            <label for="f-puh">Puhelin <span class="req" aria-hidden="true">*</span></label>
+            <input type="tel" id="f-puh" name="puhelin" autocomplete="tel" placeholder="040 123 4567" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-email">Sähköposti <span class="req" aria-hidden="true">*</span></label>
+          <input type="email" id="f-email" name="sahkoposti" autocomplete="email" placeholder="nimi@esimerkki.fi" required>
+        </div>
+        <div class="field">
+          <label for="f-viesti">Viesti <span class="req" aria-hidden="true">*</span></label>
+          <textarea id="f-viesti" name="viesti" placeholder="Kerro lyhyesti tarpeestasi, esim. ilmanvaihdon huolto tai putkiremontti…" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Lähetä tarjouspyyntö
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg>
+        </button>
+        <p class="form-note">Lähettämällä lomakkeen hyväksyt tietojesi käsittelyn tarjouksen laatimiseksi.</p>
+        <p class="form-success" id="formSuccess" role="status">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 5-5.5"/></svg>
+          Kiitos! Tämä on demovierailu – lomake ei lähetä tietoja.
+        </p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer aria-label="Alatunniste">
+  <div class="wrap">
+    <div class="footer-inner">
+      <a class="brand" href="#alku" aria-label="LVI-Valkama Oy – takaisin alkuun">
+        <span class="mark" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg>
+        </span>
+        <span>LVI-Valkama Oy<small>Pikku Huopalahti · Helsinki</small></span>
+      </a>
+      <div class="footer-meta">
+        <span class="demo-tag">DEMO-SIVUSTO – esimerkki, ei virallinen sivusto</span>
+        <p>Tämä sivusto on myyntiesittelyä varten laadittu demo. Yhteystiedot ovat esimerkkitietoja, eikä lomake lähetä tietoja.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 LVI-Valkama Oy – Tilkankatu 2A LB1, 00300 Helsinki</span>
+      <span>Ilmanvaihto · Lämmitys · Putkityöt · LVI-huollot</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* Mobile nav */
+  var toggle = document.getElementById("navToggle");
+  var nav = document.getElementById("mainNav");
+  toggle.addEventListener("click", function(){
+    var open = nav.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    toggle.setAttribute("aria-label", open ? "Sulje valikko" : "Avaa valikko");
+  });
+  nav.addEventListener("click", function(e){
+    if (e.target.closest("a")) {
+      nav.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  /* Reveal on scroll */
+  var revealEls = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add("visible"); });
+  }
+
+  /* Animated stat counters */
+  var nums = document.querySelectorAll(".stat .num");
+  var counted = false;
+  function animateStats(){
+    if (counted) return;
+    counted = true;
+    nums.forEach(function(el){
+      var target = parseInt(el.getAttribute("data-count"), 10);
+      var suffix = el.querySelector("small") ? el.querySelector("small").outerHTML : "";
+      var start = null, dur = 1400;
+      function step(ts){
+        if (!start) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.innerHTML = Math.round(target * eased).toLocaleString("fi-FI").replace(/\u00a0/g, " ") + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  var statsBand = document.querySelector(".stats-band");
+  if ("IntersectionObserver" in window && statsBand) {
+    var io2 = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) { animateStats(); io2.disconnect(); }
+      });
+    }, { threshold: 0.4 });
+    io2.observe(statsBand);
+  } else {
+    animateStats();
+  }
+
+  /* Quote form (demo only) */
+  var form = document.getElementById("quoteForm");
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    var ok = document.getElementById("formSuccess");
+    ok.classList.add("show");
+    form.reset();
+    ok.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  });
+})();
+</script>
+</body>
+</html>
